@@ -30,6 +30,27 @@ describe(List) do
     end
   end
 
+  describe("#tasks") do
+    it('returns an empty array if you ask for an empty list') do
+      list = List.new({:name => "Epicodus stuff", :id => nil})
+      list.save()
+      expect(list.tasks()).to(eq([]))
+    end
+
+    it('returns all task objects for a given list by its id number') do
+      list = List.new({:name => "Epicodus stuff", :id => nil})
+      list.save()
+      test_task = Task.new({:description => "learn SQL", :list_id => list.id() })
+      test_task.save()
+      test_task2 = Task.new({:description => "learn Ruby", :list_id => list.id() })
+      test_task2.save()
+      expect(list.tasks()).to(eq([test_task, test_task2]))
+    end
+
+  end
+
+
+
   describe("#==") do
     it("is the same list if it has the same name") do
       list1 = List.new({:name => "Epicodus stuff", :id => nil})
