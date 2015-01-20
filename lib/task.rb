@@ -1,5 +1,5 @@
 class Task
-  @@all_tasks = []
+  # @@all_tasks = []
   attr_reader(:description)
 
   define_method(:initialize) do |attribute|
