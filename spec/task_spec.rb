@@ -1,15 +1,4 @@
-require('rspec')
-require('task')
-require('pg')
-# require('list')
-
-DB = PG.connect({:dbname => 'to_do_test'})
-
-# RSpec.configure do |config|
-#   config.after(:each) do
-#     DB.exec("DELETE FROM tasks *;")
-#   end
-# end
+require('spec_helper')
 
 describe(Task) do
   describe("#description") do
@@ -35,7 +24,7 @@ describe(Task) do
 
   describe(".clear") do
     it("empties all the saved tasks") do
-      Task.new({:description => "learn SQL"}).save()
+      Task.new({:description => "learn SQL", :list_id => 1}).save()
       Task.clear()
       expect(Task.all()).to(eq([]))
     end
@@ -56,8 +45,9 @@ describe(Task) do
     end
   end
 
-  before() do
-    Task.clear()
-  end
+  # before() do
+  #   Task.clear()
+  # end
+  #   ABSOLUTE GENIUS IF YOU ASK ME!
 
 end
