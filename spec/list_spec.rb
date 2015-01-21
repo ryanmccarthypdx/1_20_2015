@@ -40,11 +40,11 @@ describe(List) do
     it('returns all task objects for a given list by its id number') do
       list = List.new({:name => "Epicodus stuff", :id => nil})
       list.save()
-      test_task = Task.new({:description => "learn SQL", :list_id => list.id() })
+      test_task = Task.new({:description => "learn SQL", :list_id => list.id(), :due_date => "2018-10-01" })
       test_task.save()
-      test_task2 = Task.new({:description => "learn Ruby", :list_id => list.id() })
+      test_task2 = Task.new({:description => "learn Ruby", :list_id => list.id(), :due_date => "2014-01-01" })
       test_task2.save()
-      expect(list.tasks()).to(eq([test_task, test_task2]))
+      expect(list.tasks()).to(eq([test_task2, test_task]))
     end
 
   end

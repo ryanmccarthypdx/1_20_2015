@@ -28,12 +28,13 @@ class List
   end
 
   define_method(:tasks) do
-    returned_tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{self.id()};")
+    returned_tasks = DB.exec("SELECT * FROM tasks WHERE list_id = #{self.id()} ORDER BY due_date;")
     tasks = []
     returned_tasks.each() do |task|
       description = task.fetch("description")
       list_id = task.fetch("list_id").to_i()
-      recreated_task = (Task.new({:description => description, :list_id => list_id}))
+      due_date = task.fetch("due_date")
+      recreated_task = (Task.new({:description => description, :list_id => list_id, :due_date => due_date}))
       tasks.push(recreated_task)
     end
     tasks
