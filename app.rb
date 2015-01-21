@@ -27,7 +27,7 @@ get('/tasks/:id') do
   @list = List.sel(@id)
   @all_tasks_in_list = @list.tasks()
   @name = @list.name()
-  @title = "<%= @name %>"
+  @title = @name
   erb(:tasks)
 end
 
@@ -40,6 +40,6 @@ post('/posted_task/:id') do
   @list = List.sel(@id)
   @all_tasks_in_list = @list.tasks()
   @name = @list.name()
-  @title = "<%= @name %>"
+  @title = @name
   erb(:tasks)
 end

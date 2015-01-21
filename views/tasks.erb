@@ -1,4 +1,4 @@
-<h1>My To-do Lists</h1>
+<h1>List: <%= @name %></h1>
 
 <h3>Add New Task</h3>
 <form action='/posted_task/<%= @id %>' method='post'>
@@ -13,7 +13,7 @@
 <br />
 
 
-<h2>My Tasks</h2>
+<h2><%= @name %></h2>
 <ul>
   <% @all_tasks_in_list.each() do |task| %>
     <li><%= task.description() %>, Due: <%= task.due_date() %></li>
