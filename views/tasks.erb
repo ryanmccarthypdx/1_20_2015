@@ -1,0 +1,18 @@
+<h1>My To-do Lists</h1>
+
+<h3>Add New Task</h3>
+<form action='/tasks/<%= list.id() %>' method='post'>
+  <label for='name'>List name:</label>
+  <input id='name' name='name' type='text' placeholder='My Bucket List'>
+  <button type='submit' class='btn btn-primary'>Add List</button>
+</form>
+<br />
+
+
+<h2>My Tasks</h2>
+<ul>
+  <% @all_tasks_in_list.each() do |task| %>
+    <li><%= task.description() %>, Due: <%= task.due_date() %></li>
+  <% end %>
+</ul>
+<br />

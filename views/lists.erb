@@ -1,0 +1,18 @@
+<h1>My To-do Lists</h1>
+
+<h3>Add a new list</h3>
+<form action='/posted' method='post'>
+  <label for='name'>List name:</label>
+  <input id='name' name='name' type='text' placeholder='My Bucket List'>
+  <button type='submit' class='btn btn-primary'>Add List</button>
+</form>
+<br />
+
+
+<h2>My To-do Lists</h2>
+<ul>
+  <% @list_of_lists.each() do |list| %>
+    <li><a href='/tasks/<%= list.id() %>'><%= list.name() %></a></li>
+  <% end %>
+</ul>
+<br />

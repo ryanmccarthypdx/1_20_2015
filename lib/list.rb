@@ -1,6 +1,6 @@
 # require('task')
 require('pry')
-require('spec_helper')
+
 
 
 class List
@@ -38,6 +38,10 @@ class List
       tasks.push(recreated_task)
     end
     tasks
+  end
+
+  define_singleton_method(:sel) do |id|
+    DB.exec("SELECT * FROM lists WHERE id = #{id};")
   end
 
 
