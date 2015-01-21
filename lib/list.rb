@@ -41,7 +41,14 @@ class List
   end
 
   define_singleton_method(:sel) do |id|
-    DB.exec("SELECT * FROM lists WHERE id = #{id};")
+    selection = []
+    select_result = DB.exec("SELECT * FROM lists WHERE id = #{id};")
+    select_result.each() do |result| #even though i know it's only a single possible return
+      name = result.fetch("name")
+      list_id = result.fetch("id")
+      selection.push(List.new({ :name => name, :id => list_id}))
+    end
+    selection[0]
   end
 
 

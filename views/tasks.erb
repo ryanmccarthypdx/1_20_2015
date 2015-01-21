@@ -1,10 +1,14 @@
 <h1>My To-do Lists</h1>
 
 <h3>Add New Task</h3>
-<form action='/tasks/<%= list.id() %>' method='post'>
-  <label for='name'>List name:</label>
-  <input id='name' name='name' type='text' placeholder='My Bucket List'>
-  <button type='submit' class='btn btn-primary'>Add List</button>
+<form action='/posted_task/<%= @id %>' method='post'>
+  <label for='description'>Add this task:</label>
+  <input id='description' name='description' type='text' placeholder='Swim with sharks'>
+  <br />
+  <label for='due_date'>Add a due date for this task:</label>
+  <input id='due_date' name='due_date' type='text' placeholder='YYYY-MM-DD'>
+  <br />
+  <button type='submit' class='btn btn-primary'>Add task</button>
 </form>
 <br />
 
